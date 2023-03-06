@@ -1,0 +1,20 @@
+/* app.component.css */
+.mat-toolbar {
+    background-color: #2C323A;
+    padding: 5pt 5pt 5pt 5pt;
+  }
+
+.mat-toolbar-row{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+mat-toolbar-row > .logo{
+  height: 90%;
+}
+
+mat-form-field{
+  flex-grow: 2;
+  margin: 10pt 10pt 10pt 10pt;
+}
