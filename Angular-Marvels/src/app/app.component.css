@@ -1,6 +1,6 @@
 /* app.component.css */
+
 .mat-toolbar {
-    background-color: #2C323A;
     padding: 5pt 5pt 5pt 5pt;
   }
 
@@ -14,7 +14,12 @@ mat-toolbar-row > .logo{
   height: 90%;
 }
 
+mat-toolbar-row > mat-form-field{
+  margin-top:15pt;
+}
+
 mat-form-field{
   flex-grow: 2;
-  margin: 10pt 10pt 10pt 10pt;
+  margin-right: 10pt;
+  margin-left: 10pt;
 }

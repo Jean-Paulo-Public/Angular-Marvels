@@ -1,15 +1,21 @@
 <!-- app.component.html -->
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>
-      <mat-icon>star</mat-icon>
-      <mat-icon>favorite</mat-icon>
-    </span>  
-    <mat-form-field>
-      <mat-label>Buscar</mat-label>
-      <input matInput placeholder="Digite sua pesquisa aqui">
-    </mat-form-field>
-    <h1 class="fs-1">{{ pageTitle }}</h1>
-    <img src="./assets/img/logo.png" alt="Logo" class="logo img-fluid rounded">
-  </mat-toolbar-row>
-</mat-toolbar>
+<div [ngClass]="{'dark-theme': isDarkTheme, 'light-theme': !isDarkTheme}">
+  <!-- conteúdo da página -->
+  <header>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>
+          <mat-icon>star</mat-icon>
+          <mat-icon>favorite</mat-icon>
+        </span>
+        <mat-form-field>
+          <mat-label>Buscar</mat-label>
+          <input matInput placeholder="Digite sua pesquisa aqui">
+        </mat-form-field>
+        <h1 class="fs-1">{{ pageTitle }}</h1>
+        <img src="./assets/img/logo.png" alt="Logo" class="logo img-fluid rounded">
+        <button (click)="isDarkTheme = !isDarkTheme">Alternar tema</button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+</div>
