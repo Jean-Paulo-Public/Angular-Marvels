@@ -1,4 +1,19 @@
 /* app.component.css */
+h1{
+  padding-left: 10pt;
+  padding-right: 10pt;
+  margin-top: 10pt;
+}
+
+@media (max-width: 800px) {
+  h1{
+    display: none;
+  }
+}
+
+.buttonToggleTheme{
+  margin: 0pt 0pt 0pt 10pt;
+}
 
 .mat-toolbar {
     padding: 5pt 5pt 5pt 5pt;
