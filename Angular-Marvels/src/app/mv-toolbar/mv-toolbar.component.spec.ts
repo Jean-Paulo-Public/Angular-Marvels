@@ -8,9 +8,9 @@ describe('MvToolbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MvToolbarComponent ]
+      declarations: [MvToolbarComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MvToolbarComponent);
     component = fixture.componentInstance;

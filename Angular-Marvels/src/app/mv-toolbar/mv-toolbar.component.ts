@@ -1,5 +1,5 @@
 /*mv-toolbar.component.ts*/
-import { Component, Input, Output, EventEmitter } from '@angular/core'; 
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -9,8 +9,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class MvToolbarComponent {
   @Input() pageTitle = 'Angular Marvels';
-  @Input() isDarkTheme = false; 
-  @Output() themeChanged = new EventEmitter<boolean>(); 
+  @Input() isDarkTheme = false;
+  @Output() themeChanged = new EventEmitter<boolean>();
 
   emoji = '&#x1F319;'; // começa com o emoji da lua
   toggleTheme() {
@@ -18,5 +18,5 @@ export class MvToolbarComponent {
     // alterna o emoji de acordo com o tema
     this.emoji = this.isDarkTheme ? '&#x2600;' : '&#x1F319;';
     this.themeChanged.emit(this.isDarkTheme)
-  }  
+  }
 }

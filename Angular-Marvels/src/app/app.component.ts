@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   isDarkTheme = false;
   pageTitle = 'Angular Marvels'
-  onThemeChanged(theme: boolean) { 
+  onThemeChanged(theme: boolean) {
     this.isDarkTheme = theme; // muda a variável de acordo com o evento recebido 
   }
 }

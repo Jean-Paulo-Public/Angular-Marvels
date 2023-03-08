@@ -2,7 +2,7 @@
 <div [ngClass]="{'dark-theme': isDarkTheme, 'light-theme': !isDarkTheme}">
   <!-- conteúdo da página -->
   <header>
-  <app-mv-toolbar [isDarkTheme]="isDarkTheme" [pageTitle]="pageTitle" (themeChanged)="onThemeChanged($event)">
+    <app-mv-toolbar [isDarkTheme]="isDarkTheme" [pageTitle]="pageTitle" (themeChanged)="onThemeChanged($event)">
     </app-mv-toolbar>
   </header>
 </div>
