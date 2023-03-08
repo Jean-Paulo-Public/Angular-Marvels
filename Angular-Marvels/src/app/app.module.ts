@@ -9,10 +9,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
 import { MatInputModule } from '@angular/material/input';
+import { MvToolbarComponent } from './mv-toolbar/mv-toolbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MvToolbarComponent
   ],
   imports: [
     BrowserModule,

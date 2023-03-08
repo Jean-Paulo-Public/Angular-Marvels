@@ -1,3 +1,4 @@
+/*app.component.ts*/
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,12 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  pageTitle = 'Angular Marvels';
   isDarkTheme = false;
-  emoji = '&#x1F319;'; // começa com o emoji da lua
-  toggleTheme() {
-    this.isDarkTheme = !this.isDarkTheme;
-    // alterna o emoji de acordo com o tema
-    this.emoji = this.isDarkTheme ? '&#x2600;' : '&#x1F319;';
-  }  
+  pageTitle = 'Angular Marvels'
+  onThemeChanged(theme: boolean) { 
+    this.isDarkTheme = theme; // muda a variável de acordo com o evento recebido 
+  }
 }
