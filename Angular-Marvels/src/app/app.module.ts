@@ -1,3 +1,5 @@
+/* app.module.ts  */
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MvToolbarComponent } from './mv-toolbar/mv-toolbar.component';
 
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +25,8 @@ import { MvToolbarComponent } from './mv-toolbar/mv-toolbar.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

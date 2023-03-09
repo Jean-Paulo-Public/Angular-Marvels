@@ -1,13 +1,14 @@
-h1 {
-  padding-left: 10pt;
-  padding-right: 10pt;
-  margin-top: 10pt;
-}
-
+/* Sobra pouco espaço para o título então eu estou o ocultando */
 @media (max-width: 800px) {
   h1 {
     display: none;
   }
+}
+
+h1 {
+  padding-left: 10pt;
+  padding-right: 10pt;
+  margin-top: 10pt;
 }
 
 .buttonToggleTheme {
