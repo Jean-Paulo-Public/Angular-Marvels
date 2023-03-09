@@ -1,4 +1,4 @@
-/*app.component.ts*/
+/* app.component.ts */
 import { Component } from '@angular/core';
 
 @Component({

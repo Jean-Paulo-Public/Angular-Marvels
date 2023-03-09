@@ -15,10 +15,13 @@ import { MvToolbarComponent } from './mv-toolbar/mv-toolbar.component';
 
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
+import { MvButtonToggleGroupComponent } from './mv-button-toggle-group/mv-button-toggle-group.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    MvToolbarComponent
+    MvToolbarComponent,
+    MvButtonToggleGroupComponent
   ],
   imports: [
     BrowserModule,

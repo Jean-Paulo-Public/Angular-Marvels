@@ -6,13 +6,8 @@
     <app-mv-toolbar [isDarkTheme]="isDarkTheme" [pageTitle]="pageTitle" (themeChanged)="onThemeChanged($event)">
     </app-mv-toolbar>
   </header>
-  <div class="flex-container button-section">
-    <mat-button-toggle-group class="button-group" #group="matButtonToggleGroup" aria-label="Filtros">
-      <!-- usando ngFor para criar os botões -->
-      <mat-button-toggle *ngFor="let button of buttons" [value]="button.value">{{button.text}}</mat-button-toggle>
-      <!-- fim do ngFor -->
-    </mat-button-toggle-group>
-  </div>
+  <!-- usando o seletor do componente e passando o array de buttons como input -->
+  <app-mv-button-toggle-group [buttons]="buttons"></app-mv-button-toggle-group>
 </div>
 
 <!--
