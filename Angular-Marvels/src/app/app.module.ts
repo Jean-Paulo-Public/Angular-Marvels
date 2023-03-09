@@ -15,16 +15,18 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { MvButtonToggleGroupComponent } from './mv-button-toggle-group/mv-button-toggle-group.component';
 
-import { FormsModule } from '@angular/forms';
+/*import { FormsModule } from '@angular/forms';*/
 
-import { JoinPipe } from './join.pipe';
+/*import { JoinPipe } from './join.pipe';*/
+
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     MvToolbarComponent,
-    MvButtonToggleGroupComponent,
-    JoinPipe
+    MvButtonToggleGroupComponent
+    /*JoinPipe*/
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { JoinPipe } from './join.pipe';
     MatToolbarModule,
     MatInputModule,
     MatButtonToggleModule,
-    FormsModule
+    /*FormsModule,*/
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

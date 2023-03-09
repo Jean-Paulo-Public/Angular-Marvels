@@ -8,6 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./mv-button-toggle-group.component.css']
 })
 export class MvButtonToggleGroupComponent {
-  selecao: any[]=[];
   @Input() buttonsOfMvButtonToggle?: any[]; // recebendo o input de buttons
 }
