@@ -1,9 +1,10 @@
 <!-- mv-button-toggle-group.component.html -->
 
 <div class="flex-container button-section">
-    <mat-button-toggle-group class="button-group" #group="matButtonToggleGroup" aria-label="Filtros">
+    <mat-button-toggle-group class="button-group" #group="matButtonToggleGroup" aria-label="Filtros" [(ngModel)]="selecao" multiple>
         <!-- usando ngFor para criar os botões -->
-        <mat-button-toggle *ngFor="let button of buttons" [value]="button.value">{{button.text}}</mat-button-toggle>
+        <mat-button-toggle *ngFor="let button of buttonsOfMvButtonToggle" [value]="button.value">{{button.text}}</mat-button-toggle>
         <!-- fim do ngFor -->
     </mat-button-toggle-group>
+    <p>Seleção: {{selecao | join:' - '}}</p>
 </div>

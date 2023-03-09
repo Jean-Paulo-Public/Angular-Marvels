@@ -1,4 +1,5 @@
 /* app.component.ts */
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ import { Component } from '@angular/core';
 export class AppComponent {  
   isDarkTheme = false;
   pageTitle = 'Angular Marvels'
-  buttons = [
+  buttonsOfMvButtonToggle = [
     {value: 'personagens', text: 'Personagens'},
     {value: 'historia', text: 'Histórias'},
     {value: 'eventos', text: 'Eventos'},
