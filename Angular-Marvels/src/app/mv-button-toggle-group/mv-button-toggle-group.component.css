@@ -1,0 +1,21 @@
+* {
+    scrollbar-width: thin;
+    scrollbar-color: black transparent;
+}
+
+.button-section {
+    width: 100%;
+    /* 100% da largura da tela */
+    border: 1px solid black;
+    /* borda preta de 1 pixel */
+}
+
+.button-group {
+    overflow: auto;
+    /* barra de rolagem automática */
+}
+
+.flex-container {
+    display: flex;
+    overflow-x: auto;
+}
