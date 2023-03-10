@@ -3,16 +3,24 @@
   h1 {
     display: none;
   }
+  mat-form-field {
+    padding-right: 20pt;
+  }  
 }
 
 h1 {
-  padding-left: 10pt;
-  padding-right: 10pt;
+  padding-left: 20pt;
+  padding-right: 20pt;
   margin-top: 10pt;
 }
 
 .buttonToggleTheme {
-  margin: 0pt 0pt 0pt 10pt;
+  margin: 0pt -10pt 0pt 10pt;
+  background-color: transparent;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  padding: 0;
 }
 
 .mat-toolbar {
@@ -35,6 +43,14 @@ mat-toolbar-row>mat-form-field {
 
 mat-form-field {
   flex-grow: 2;
-  margin-right: 10pt;
-  margin-left: 10pt;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.theme-icon {
+  max-width: 36px;
+  max-height: 36px;
+  background-color: transparent;
 }

@@ -1,13 +1,15 @@
 <!-- mv-toolbar.component.html -->
 
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
+    <mat-toolbar-row class="align-middle">
         <mat-form-field>
             <mat-label>Buscar</mat-label>
             <input matInput placeholder="Digite sua pesquisa aqui">
         </mat-form-field>
         <h1 class="fs-1">{{ pageTitle }}</h1>
         <img src="./assets/img/logo.png" alt="Logo" class="logo img-fluid rounded">
-        <button (click)="toggleTheme()" [innerHTML]="emoji" class="buttonToggleTheme"></button>
+        <button (click)="toggleTheme()" class="buttonToggleTheme">
+            <img [ngClass]="{'rotate': isDarkTheme}" class="theme-icon" src="./assets/img/day-and-night.png" alt="Day and Night">
+        </button>
     </mat-toolbar-row>
 </mat-toolbar>
