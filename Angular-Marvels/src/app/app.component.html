@@ -6,8 +6,19 @@
     <app-mv-toolbar [isDarkTheme]="isDarkTheme" [pageTitle]="pageTitle" (themeChanged)="onThemeChanged($event)">
     </app-mv-toolbar>
   </header>
-  <!-- usando o seletor do componente e passando o array de buttons como input -->
-  <app-mv-button-toggle-group [buttonsOfMvButtonToggle]="buttonsOfMvButtonToggle"></app-mv-button-toggle-group>
+  <!--
+    Para manter um projeto simples, decidi não colocar barra de navegação
+    <nav>
+    </nav>
+  -->
+  <main>
+    <app-mv-button-toggle-group [buttonsOfMvButtonToggle]="buttonsOfMvButtonToggle"></app-mv-button-toggle-group>     
+    <section>
+    </section>
+  </main>
+  <footer>
+    <!-- Copyrigth, sobre etc... -->
+  </footer>
 </div>
 
 <!--
