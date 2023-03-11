@@ -21,13 +21,15 @@ import { MvButtonToggleGroupComponent } from './mv-button-toggle-group/mv-button
 
 import { MatCardModule } from '@angular/material/card';
 import { MvFooterCardComponent } from './mv-footer-card/mv-footer-card.component';
+import { MvSectionComponent } from './mv-section/mv-section.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MvToolbarComponent,
     MvButtonToggleGroupComponent,
-    MvFooterCardComponent
+    MvFooterCardComponent,
+    MvSectionComponent
     /*JoinPipe*/
   ],
   imports: [
