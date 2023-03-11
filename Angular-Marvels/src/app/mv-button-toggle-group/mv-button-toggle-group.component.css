@@ -20,4 +20,5 @@
 .flex-container {
     display: flex;
     overflow-x: auto;
+    align-items: center;
 }
