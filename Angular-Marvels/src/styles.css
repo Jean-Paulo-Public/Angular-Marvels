@@ -10,6 +10,9 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: black transparent;
 }
 
 body.dark-theme {

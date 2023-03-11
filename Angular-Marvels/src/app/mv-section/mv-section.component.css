@@ -1,4 +1,8 @@
-.mv-margin{
+.mv-margin {
     margin: 5pt 5pt 5pt 5pt;
     width: 100%;
+}
+
+.col-8{
+    padding: 0pt 10pt 0pt 10pt;
 }
