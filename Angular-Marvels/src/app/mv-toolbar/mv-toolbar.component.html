@@ -9,7 +9,7 @@
         <h1 class="fs-1">{{ pageTitle }}</h1>
         <img src="./assets/img/logo.png" alt="Logo" class="logo img-fluid rounded">
         <button (click)="toggleTheme()" class="buttonToggleTheme">
-            <img [ngClass]="{'rotate': isDarkTheme}" class="theme-icon" src="./assets/img/icons/day-and-night-icon.png" alt="Day and Night">
+            <img [ngClass]="{'rotate': !isDarkTheme}" class="theme-icon" src="./assets/img/icons/day-and-night-icon.png" alt="Day and Night">
         </button>
     </mat-toolbar-row>
 </mat-toolbar>

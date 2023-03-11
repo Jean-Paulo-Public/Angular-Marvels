@@ -19,6 +19,6 @@
 
 .flex-container {
     display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     align-items: center;
 }
