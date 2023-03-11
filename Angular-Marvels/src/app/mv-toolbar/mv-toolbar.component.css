@@ -41,18 +41,15 @@ mat-form-field {
 }
 
 .theme-icon {
-  margin-top: -1pt;
-  margin-left: -1pt;
-  max-width: 36px;
-  max-height: 36px;
+  max-width: 48px;
+  max-height: 48px;
   background-color: transparent;
 }
 
 .buttonToggleTheme {
-  margin: 0pt -10pt 0pt 10pt;
+  border: none;
   background-color: transparent;
+  margin: 0pt -10pt 0pt 10pt;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
   padding: 0;
 }
