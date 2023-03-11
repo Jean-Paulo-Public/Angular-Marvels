@@ -1,0 +1,13 @@
+/* mv-footer-card.component.css  */
+
+.footer-card {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* 100% da largura da tela */
+    border: 1px solid black;
+    /* borda preta de 1 pixel */
+    border-radius: 0 !important;
+    /* Achei que ficou feio borda arredondada */
+    min-height: 30pt;
+}
