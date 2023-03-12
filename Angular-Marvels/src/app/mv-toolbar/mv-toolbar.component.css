@@ -1,11 +1,19 @@
 /* Sobra pouco espaço para o título então eu estou o ocultando */
-@media (max-width: 800px) {
+@media (max-width: 765px) {
   h1 {
     display: none;
   }
   mat-form-field {
     padding-right: 20pt;
   }  
+}
+@media (max-width: 575px) {
+  h1 {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
 }
 
 h1 {
