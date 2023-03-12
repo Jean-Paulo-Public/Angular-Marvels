@@ -1,21 +1,29 @@
 /* mv-results.component.css  */
 
+.card-content {
+    margin-top: var(----my-app-mv-magin);
+    margin-bottom: var(----my-app-mv-magin);
+    padding: var(--my-app-mv-padding);
+}
+
+@media (max-width: 575px) {
+    .card-content {
+        margin-top: var(--my-app-small-space);
+    }
+}
+
 .dark-mode .list-group-item {
     background-color: #444;
     border-color: #222;
     color: #fff;
 }
 
-.list-group-item.active{
+.list-group-item.active {
     border-color: #1c4f80;
     background-color: #2A75B3;
 }
 
-.dark-mode .list-group-item.active{
+.dark-mode .list-group-item.active {
     border-color: #222;
     background-color: #555;
-}
-
-.card-content{
-    padding: var(--my-app-mv-padding)
 }
