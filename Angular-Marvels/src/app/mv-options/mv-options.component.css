@@ -1,3 +1,7 @@
+.card{
+    min-width: 208px;
+}
+
 .text-bg-dark .card-header{
     border-color: #222;
     background-color: #555;
