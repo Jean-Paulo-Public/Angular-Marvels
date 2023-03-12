@@ -2,10 +2,11 @@
 
 .dark-mode .list-group-item {
     background-color: #444;
+    border-color: #222;
     color: #fff;
 }
 
 .dark-mode .list-group-item.active{
-    border-color: #555;
+    border-color: #222;
     background-color: #555;
 }
