@@ -9,5 +9,5 @@
     /* borda preta de 1 pixel */
     border-radius: 0 !important;
     /* Achei que ficou feio borda arredondada */
-    min-height: 30pt;
+    min-height: var(--my-app-large-space);
 }

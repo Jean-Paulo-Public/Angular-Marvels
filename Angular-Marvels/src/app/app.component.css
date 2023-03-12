@@ -1,8 +1,8 @@
 /* app.component.css */
 .main-content{
-    padding: 5pt 5pt 30pt 5pt;
+    padding: var(--my-app-mv-padding) var(--my-app-mv-padding) var(--my-app-large-space) var(--my-app-mv-padding);
 }
 
-.section-content{
-    padding-top: 5pt;
+.section-content {
+    padding-top: var(--my-app-mv-padding);
 }
