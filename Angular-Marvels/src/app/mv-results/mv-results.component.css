@@ -6,6 +6,11 @@
     color: #fff;
 }
 
+.list-group-item.active{
+    border-color: #1c4f80;
+    background-color: #2A75B3;
+}
+
 .dark-mode .list-group-item.active{
     border-color: #222;
     background-color: #555;
