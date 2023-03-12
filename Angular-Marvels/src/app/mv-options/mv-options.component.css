@@ -1,20 +1,22 @@
 .text-bg-dark .card-header{
-    background-color: #444;
+    border-color: #222;
+    background-color: #555;
     color: #fff;
 }
 .text-bg-dark .card-body{
+    border-color: #222;
     background-color: #444;
     color: #fff;
 }
 
 .dark-mode.input-group-text{
-    border-color: #222;
+    border-color: #333;
     background-color: #555;
     color: #fff;
 }
 
 .dark-mode.form-select{
-    border-color: #222; 
+    border-color: #333; 
     background-color: #666; 
     color: #fff;
 }
