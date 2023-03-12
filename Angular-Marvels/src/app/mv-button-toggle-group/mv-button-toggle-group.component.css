@@ -1,8 +1,3 @@
-* {
-    scrollbar-width: thin;
-    scrollbar-color: black transparent;
-}
-
 .button-section {
     width: 100%;
     /* 100% da largura da tela */
@@ -17,8 +12,12 @@
     /* barra de rolagem automática */
 }
 
-.flex-container {
+mat-button-toggle-group {
     display: flex;
-    overflow-x: hidden;
+    flex-wrap: wrap !important;
+    justify-content: center;
+}
+
+.flex-container {
     align-items: center;
 }
