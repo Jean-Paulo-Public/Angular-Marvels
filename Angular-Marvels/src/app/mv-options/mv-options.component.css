@@ -1,0 +1,25 @@
+.text-bg-dark .card-header{
+    background-color: #444;
+    color: #fff;
+}
+.text-bg-dark .card-body{
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-mode.input-group-text{
+    border-color: #222;
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode.form-select{
+    border-color: #222; 
+    background-color: #666; 
+    color: #fff;
+}
+
+.dark-mode.form-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}

@@ -23,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MvFooterCardComponent } from './mv-footer-card/mv-footer-card.component';
 import { MvSectionComponent } from './mv-section/mv-section.component';
 import { MvOptionsComponent } from './mv-options/mv-options.component';
+import { MvResultsComponent } from './mv-results/mv-results.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MvOptionsComponent } from './mv-options/mv-options.component';
     MvButtonToggleGroupComponent,
     MvFooterCardComponent,
     MvSectionComponent,
-    MvOptionsComponent
+    MvOptionsComponent,
+    MvResultsComponent
     /*JoinPipe*/
   ],
   imports: [
