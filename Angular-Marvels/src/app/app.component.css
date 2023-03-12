@@ -1,4 +1,8 @@
 /* app.component.css */
 .main-content{
-    padding-bottom: 30pt;
+    padding: 5pt 5pt 30pt 5pt;
+}
+
+.section-content{
+    padding-top: 5pt;
 }

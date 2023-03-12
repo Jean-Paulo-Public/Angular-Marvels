@@ -2,22 +2,7 @@
 
 <div class="row">
     <div class="col-3">
-        <div class="card mv-margin mb-3" [ngClass]="{'text-bg-dark': isDarkTheme, 'text-bg-light': !isDarkTheme}"
-            style="max-width: 18rem;">
-            <div class="card-header text-center">Opções</div>
-            <div class="card-body">
-                <h5 class="card-title text-center">Quantidade de resultados por página</h5>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupSelect01">Selecione</label>
-                    <select class="form-select" id="inputGroupSelect01">
-                        <option selected>10</option>
-                        <option value="1">20</option>
-                        <option value="2">50</option>
-                        <option value="3">100</option>
-                    </select>
-                </div>
-            </div>
-        </div>
+        <app-mv-options [isDarkTheme]="isDarkTheme"></app-mv-options>
     </div>
     <div class="col-9">
         <div class="row mv-margin">
