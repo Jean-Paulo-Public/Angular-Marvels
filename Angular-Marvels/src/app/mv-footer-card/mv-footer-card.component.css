@@ -1,7 +1,7 @@
 /* mv-footer-card.component.css  */
 
 .footer-card {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     /* 100% da largura da tela */

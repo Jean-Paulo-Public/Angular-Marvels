@@ -10,16 +10,6 @@ import { Component } from '@angular/core';
 export class AppComponent {  
   isDarkTheme = false;
   pageTitle = 'Angular Marvels'
-  buttonsOfMvButtonToggle = [
-    {value: 'personagens', text: 'Personagens'},
-    {value: 'historia', text: 'Histórias'},
-    {value: 'eventos', text: 'Eventos'},
-    {value: 'series', text: 'Séries'},
-    {value: 'comics', text: 'Comics'},
-    {value: 'criadores', text: 'Criadores'},
-    {value: 'favoritos', text: 'Favoritos'},
-    {value: 'curtidos', text: 'Curtidos'}
-  ];  
   constructor() {
     this.setThemeClass();
   }

@@ -8,5 +8,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./mv-button-toggle-group.component.css']
 })
 export class MvButtonToggleGroupComponent {
-  @Input() buttonsOfMvButtonToggle?: any[]; // recebendo o input de buttons
+  buttonsOfMvButtonToggle = [
+    {value: 'favoritos', text: 'Favoritos'},
+    {value: 'personagens', text: 'Personagens'},
+    {value: 'historia', text: 'Histórias'},
+    {value: 'eventos', text: 'Eventos'},
+    {value: 'series', text: 'Séries'},
+    {value: 'comics', text: 'Comics'},
+    {value: 'criadores', text: 'Criadores'},
+    {value: 'curtidos', text: 'Curtidos'}
+  ];  
 }
