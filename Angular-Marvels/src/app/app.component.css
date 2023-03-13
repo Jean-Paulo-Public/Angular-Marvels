@@ -1,6 +1,7 @@
 /* app.component.css */
 .main-content{
     padding: var(--my-app-mv-padding) var(--my-app-mv-padding) var(--my-app-large-space) var(--my-app-mv-padding);
+    margin-left: var(--my-app-mv-margin);
 }
 
 .section-content {

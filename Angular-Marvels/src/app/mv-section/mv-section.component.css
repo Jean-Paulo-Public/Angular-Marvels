@@ -2,4 +2,5 @@
 
 .row{
     margin-bottom: var(--my-app-mid-space);
+    padding: var(--my-app-mv-padding) var(--my-app-mv-padding) var(--my-app-mv-padding) var(--my-app-mv-padding);
 }

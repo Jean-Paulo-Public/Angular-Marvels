@@ -1,8 +1,8 @@
 /* mv-results.component.css  */
 
 .card-content {
-    margin-top: var(----my-app-mv-magin);
-    margin-bottom: var(----my-app-mv-magin);
+    margin-top: var(----my-app-mv-margin);
+    margin-bottom: var(----my-app-mv-margin);
     padding: var(--my-app-mv-padding);
 }
 
