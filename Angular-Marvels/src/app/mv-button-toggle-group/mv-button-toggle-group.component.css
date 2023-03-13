@@ -7,17 +7,8 @@
     /* Achei que ficou feio borda arredondada */
 }
 
-.button-group {
-    overflow: auto;
-    /* barra de rolagem automática */
-}
-
 mat-button-toggle-group {
     display: flex;
     flex-wrap: wrap !important;
     justify-content: center;
-}
-
-.flex-container {
-    align-items: center;
 }

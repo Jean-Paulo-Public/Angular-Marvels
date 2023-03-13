@@ -1,4 +1,10 @@
 /* Sobra pouco espaço para o título então eu estou o ocultando */
+
+/* Margem em cima e em baixo */
+.mat-toolbar {
+  padding: 5pt 0pt 5pt 0pt;
+}
+
 @media (max-width: 765px) {
   h1 {
     display: none;
@@ -20,10 +26,6 @@ h1 {
   padding-left: 20pt;
   padding-right: 20pt;
   margin-top: 10pt;
-}
-
-.mat-toolbar {
-  padding: 5pt 5pt 5pt 5pt;
 }
 
 .mat-toolbar-row {

@@ -1,6 +1,6 @@
 <!-- mv-button-toggle-group.component.html -->
 
-<mat-card class="flex-container button-section">
+<mat-card class="button-section">
     <mat-button-toggle-group class="button-group" #group="matButtonToggleGroup" aria-label="Filtros" value="favoritos">
         <!-- usando ngFor para criar os botões -->
         <mat-button-toggle *ngFor="let button of buttonsOfMvButtonToggle" [value]="button.value">{{button.text}}</mat-button-toggle>
