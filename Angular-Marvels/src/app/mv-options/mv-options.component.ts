@@ -9,4 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class MvOptionsComponent {
   @Input() isDarkTheme = false;
+  
+  options = [10, 20, 50, 100];
 }
