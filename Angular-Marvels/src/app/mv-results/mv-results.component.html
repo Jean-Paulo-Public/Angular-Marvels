@@ -3,19 +3,21 @@
 <div class="row">
     <div class="col-sm-6 col-md-4">
         <div class="list-group" [ngClass]="{'dark-mode': isDarkTheme}" id="list-tab" role="tablist">
-            <a *ngFor="let tab of tabs; let i = index" class="list-group-item list-group-item-action"
-                [class.active]="i === 0" [id]="'list-' + tab.title.toLowerCase().split(' ').join('-') + '-list'"
-                data-bs-toggle="list" [href]="'#list-' + tab.title.toLowerCase().split(' ').join('-')" role="tab"
-                [attr.aria-controls]="'list-' + tab.title.toLowerCase().split(' ').join('-')">{{ tab.title }}</a>
+            <a *ngFor="let character of results; let i = index" class="list-group-item list-group-item-action"
+                [class.active]="i === 0" [id]="'list-' + getCharacterId(character.name).toLowerCase().split(' ').join('-') + '-list'"
+                data-bs-toggle="list" [href]="'#list-' + getCharacterId(character.name).toLowerCase().split(' ').join('-')" role="tab"
+                [attr.aria-controls]="'list-' + getCharacterId(character.name).toLowerCase().split(' ').join('-')">{{ character.name
+                }}</a>
         </div>
     </div>
     <div class="col-sm-6 col-md-8">
         <mat-card class="card-content">
             <div class="tab-content" id="nav-tabContent">
-                <div *ngFor="let tab of tabs; let i = index" class="tab-pane fade show" [class.active]="i === 0"
-                    [id]="'list-' + tab.title.toLowerCase().split(' ').join('-')" role="tabpanel"
-                    [attr.aria-labelledby]="'list-' + tab.title.toLowerCase().split(' ').join('-') + '-list'">
-                    <p *ngFor="let paragraph of tab.content">{{ paragraph }}</p>
+                <div *ngFor="let character of results; let i = index" class="tab-pane fade show"
+                    [class.active]="i === 0" [id]="'list-' + getCharacterId(character.name).toLowerCase().split(' ').join('-')"
+                    role="tabpanel"
+                    [attr.aria-labelledby]="'list-' + getCharacterId(character.name).toLowerCase().split(' ').join('-') + '-list'">
+                    <p>{{ character.description || 'Nenhuma descrição disponível' }}</p>
                 </div>
             </div>
         </mat-card>

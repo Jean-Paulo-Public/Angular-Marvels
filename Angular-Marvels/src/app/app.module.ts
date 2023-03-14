@@ -25,6 +25,8 @@ import { MvSectionComponent } from './mv-section/mv-section.component';
 import { MvOptionsComponent } from './mv-options/mv-options.component';
 import { MvResultsComponent } from './mv-results/mv-results.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,7 @@ import { MvResultsComponent } from './mv-results/mv-results.component';
     MatToolbarModule,
     MatInputModule,
     MatButtonToggleModule,
+    HttpClientModule,
     /*FormsModule,*/
     MatCardModule
   ],

@@ -13,11 +13,8 @@ export class MvToolbarComponent {
   @Input() isDarkTheme = false;
   @Output() themeChanged = new EventEmitter<boolean>();
 
-  emoji = '&#x1F319;'; // começa com o emoji da lua
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
-    // alterna o emoji de acordo com o tema
-    this.emoji = this.isDarkTheme ? '&#x2600;' : '&#x1F319;';
     this.themeChanged.emit(this.isDarkTheme)
   }
 }
