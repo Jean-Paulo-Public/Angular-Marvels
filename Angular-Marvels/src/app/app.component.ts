@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {  
   isDarkTheme = false;
-  pageTitle = 'Angular Marvels'
+  pageTitle = 'Angular Marvels';
+  selectedType = 'favorites';
+
   constructor() {
     this.setThemeClass();
   }
@@ -23,6 +25,10 @@ export class AppComponent {
         body.classList.remove('dark-theme');
       }
     }
+  }
+
+  onSelectionChage(selectedType: string){
+    this.selectedType = selectedType  
   }
 
   onThemeChanged(theme: boolean) {

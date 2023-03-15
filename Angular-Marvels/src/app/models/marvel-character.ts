@@ -1,6 +1,6 @@
 /* marvel-character.ts  */
 
-// Créditos a quem merece, feito via
+// Créditos a quem merece, feito via "https://app.quicktype.io/"
 
 // To parse this data:
 //
@@ -18,51 +18,51 @@ export interface MarvelCharacter {
     attributionText: string;
     attributionHTML: string;
     etag:            string;
-    data:            Data;
+    data:            DataCharacter;
 }
 
-export interface Data {
+export interface DataCharacter {
     offset:  number;
     limit:   number;
     total:   number;
     count:   number;
-    results: Result[];
+    results: ResultCharacter[];
 }
 
-export interface Result {
+export interface ResultCharacter {
     id:          number;
     name:        string;
     description: string;
     modified:    string;
-    thumbnail:   Thumbnail;
+    thumbnail:   ThumbnailCharacter;
     resourceURI: string;
-    comics:      Comics;
-    series:      Comics;
-    stories:     Stories;
-    events:      Comics;
+    comics:      ComicsCharacter;
+    series:      ComicsCharacter;
+    stories:     StoriesCharacter;
+    events:      ComicsCharacter;
     urls:        URL[];
 }
 
-export interface Comics {
+export interface ComicsCharacter {
     available:     number;
     collectionURI: string;
-    items:         ComicsItem[];
+    items:         ComicsItemCharacter[];
     returned:      number;
 }
 
-export interface ComicsItem {
+export interface ComicsItemCharacter {
     resourceURI: string;
     name:        string;
 }
 
-export interface Stories {
+export interface StoriesCharacter {
     available:     number;
     collectionURI: string;
-    items:         StoriesItem[];
+    items:         StoriesItemCharacter[];
     returned:      number;
 }
 
-export interface StoriesItem {
+export interface StoriesItemCharacter {
     resourceURI: string;
     name:        string;
     type:        ItemType;
@@ -74,7 +74,7 @@ export enum ItemType {
     InteriorStory = "interiorStory",
 }
 
-export interface Thumbnail {
+export interface ThumbnailCharacter {
     path:      string;
     extension: Extension;
 }
@@ -84,7 +84,7 @@ export enum Extension {
     Jpg = "jpg",
 }
 
-export interface URL {
+export interface URLCharacter {
     type: URLType;
     url:  string;
 }
@@ -102,7 +102,7 @@ export class Convert {
         return cast(JSON.parse(json), r("MarvelCharacter"));
     }
 
-    public static marvelCharacterToJson(value: MarvelCharacter): string {
+    public static marvelToJsonCharacter(value: MarvelCharacter): string {
         return JSON.stringify(uncast(value, r("MarvelCharacter")), null, 2);
     }
 }
@@ -267,54 +267,54 @@ const typeMap: any = {
         { json: "attributionText", js: "attributionText", typ: "" },
         { json: "attributionHTML", js: "attributionHTML", typ: "" },
         { json: "etag", js: "etag", typ: "" },
-        { json: "data", js: "data", typ: r("Data") },
+        { json: "data", js: "data", typ: r("DataCharacter") },
     ], false),
-    "Data": o([
+    "DataCharacter": o([
         { json: "offset", js: "offset", typ: 0 },
         { json: "limit", js: "limit", typ: 0 },
         { json: "total", js: "total", typ: 0 },
         { json: "count", js: "count", typ: 0 },
-        { json: "results", js: "results", typ: a(r("Result")) },
+        { json: "results", js: "results", typ: a(r("ResultCharacter")) },
     ], false),
-    "Result": o([
+    "ResultCharacter": o([
         { json: "id", js: "id", typ: 0 },
         { json: "name", js: "name", typ: "" },
         { json: "description", js: "description", typ: "" },
         { json: "modified", js: "modified", typ: "" },
-        { json: "thumbnail", js: "thumbnail", typ: r("Thumbnail") },
+        { json: "thumbnail", js: "thumbnail", typ: r("ThumbnailCharacter") },
         { json: "resourceURI", js: "resourceURI", typ: "" },
-        { json: "comics", js: "comics", typ: r("Comics") },
-        { json: "series", js: "series", typ: r("Comics") },
-        { json: "stories", js: "stories", typ: r("Stories") },
-        { json: "events", js: "events", typ: r("Comics") },
-        { json: "urls", js: "urls", typ: a(r("URL")) },
+        { json: "comics", js: "comics", typ: r("ComicsCharacter") },
+        { json: "series", js: "series", typ: r("ComicsCharacter") },
+        { json: "stories", js: "stories", typ: r("StoriesCharacter") },
+        { json: "events", js: "events", typ: r("ComicsCharacter") },
+        { json: "urls", js: "urls", typ: a(r("URLCharacter")) },
     ], false),
-    "Comics": o([
+    "ComicsCharacter": o([
         { json: "available", js: "available", typ: 0 },
         { json: "collectionURI", js: "collectionURI", typ: "" },
-        { json: "items", js: "items", typ: a(r("ComicsItem")) },
+        { json: "items", js: "items", typ: a(r("ComicsItemCharacter")) },
         { json: "returned", js: "returned", typ: 0 },
     ], false),
-    "ComicsItem": o([
+    "ComicsItemCharacter": o([
         { json: "resourceURI", js: "resourceURI", typ: "" },
         { json: "name", js: "name", typ: "" },
     ], false),
-    "Stories": o([
+    "StoriesCharacter": o([
         { json: "available", js: "available", typ: 0 },
         { json: "collectionURI", js: "collectionURI", typ: "" },
-        { json: "items", js: "items", typ: a(r("StoriesItem")) },
+        { json: "items", js: "items", typ: a(r("StoriesItemCharacter")) },
         { json: "returned", js: "returned", typ: 0 },
     ], false),
-    "StoriesItem": o([
+    "StoriesItemCharacter": o([
         { json: "resourceURI", js: "resourceURI", typ: "" },
         { json: "name", js: "name", typ: "" },
         { json: "type", js: "type", typ: r("ItemType") },
     ], false),
-    "Thumbnail": o([
+    "ThumbnailCharacter": o([
         { json: "path", js: "path", typ: "" },
         { json: "extension", js: "extension", typ: r("Extension") },
     ], false),
-    "URL": o([
+    "URLCharacter": o([
         { json: "type", js: "type", typ: r("URLType") },
         { json: "url", js: "url", typ: "" },
     ], false),

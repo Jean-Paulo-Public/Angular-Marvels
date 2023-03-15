@@ -1,21 +1,29 @@
 /* mv-button-toggle-group.component.ts  */
 
-import { Component, Input } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-mv-button-toggle-group',
   templateUrl: './mv-button-toggle-group.component.html',
   styleUrls: ['./mv-button-toggle-group.component.css']
 })
-export class MvButtonToggleGroupComponent {
+export class MvButtonToggleGroupComponent {  
   buttonsOfMvButtonToggle = [
-    {value: 'favoritos', text: 'Favoritos'},
-    {value: 'personagens', text: 'Personagens'},
-    {value: 'historia', text: 'Histórias'},
-    {value: 'eventos', text: 'Eventos'},
+    {value: 'favorites', text: 'Favoritos'},
+    {value: 'characters', text: 'Personagens'},
+    {value: 'history', text: 'Histórias'},
+    {value: 'events', text: 'Eventos'},
     {value: 'series', text: 'Séries'},
     {value: 'comics', text: 'Comics'},
-    {value: 'criadores', text: 'Criadores'},
-    {value: 'curtidos', text: 'Curtidos'}
+    {value: 'creators', text: 'Criadores'},
+    {value: 'likeds', text: 'Curtidos'}
   ];  
+
+  @Output() selectionChange = new EventEmitter<string>();
+
+
+  toggleMvButtonToggle(typeSelected: string) {
+    this.selectionChange.emit(typeSelected)
+  }
+
 }

@@ -1,4 +1,4 @@
-/* server.js  */
+/* server.js */
 
 const express = require('express');
 const request = require('request');
@@ -15,7 +15,18 @@ app.get('/marvel', (req, res) => {
   const preHash = timestamp + privateKey + publicKey;
   const hash = MD5(preHash).toString();
 
-  const url = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+  // lê o parâmetro "type" da requisição
+  const type = req.query.type || 'favorites';
+
+  // verifica se o valor do parâmetro "type" é igual a "favorites"
+  if (type === 'favorites') {
+    // retorna uma resposta vazia
+    res.json([]);
+    return;
+  }
+
+  // usa o valor do parâmetro "type" para construir a URL da API da Marvel
+  const url = `https://gateway.marvel.com/v1/public/${type}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
 
   request(url).pipe(res);
 });

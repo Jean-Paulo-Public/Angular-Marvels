@@ -12,9 +12,9 @@
     </nav>
   -->
   <main class="main-content">
-    <app-mv-button-toggle-group></app-mv-button-toggle-group>     
+    <app-mv-button-toggle-group (selectionChange)="onSelectionChage($event)"></app-mv-button-toggle-group>     
     <section class="section-content">
-      <app-mv-section [isDarkTheme]="isDarkTheme"></app-mv-section>
+      <app-mv-section [isDarkTheme]="isDarkTheme" [selectedType]="selectedType"></app-mv-section>
     </section>
   </main>
   <footer class="fixed-bottom">
