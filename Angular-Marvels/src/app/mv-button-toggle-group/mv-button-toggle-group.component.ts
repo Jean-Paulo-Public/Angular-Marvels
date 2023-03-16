@@ -11,7 +11,7 @@ export class MvButtonToggleGroupComponent {
   buttonsOfMvButtonToggle = [
     {value: 'favorites', text: 'Favoritos'},
     {value: 'characters', text: 'Personagens'},
-    {value: 'history', text: 'Histórias'},
+    {value: 'stories', text: 'Histórias'},
     {value: 'events', text: 'Eventos'},
     {value: 'series', text: 'Séries'},
     {value: 'comics', text: 'Comics'},

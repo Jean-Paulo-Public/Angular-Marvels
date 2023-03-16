@@ -4,19 +4,19 @@
     <div class="col-sm-6 col-md-4">
         <div class="list-group" [ngClass]="{'dark-mode': isDarkTheme}" id="list-tab" role="tablist">
             <a *ngFor="let character of results; let i = index" class="list-group-item list-group-item-action"
-                [class.active]="i === 0" [id]="'list-' + getCharacterId(character.name || character.title).toLowerCase().split(' ').join('-') + '-list'"
-                data-bs-toggle="list" [href]="'#list-' + getCharacterId(character.name || character.title).toLowerCase().split(' ').join('-')" role="tab"
-                [attr.aria-controls]="'list-' + getCharacterId(character.name || character.title).toLowerCase().split(' ').join('-')">
-                {{ character.name || character.title }}</a>
+                [class.active]="i === 0" [id]="'list-' + getCharacterId(character.name || character.title || character.firstName).toLowerCase().split(' ').join('-') + '-list'"
+                data-bs-toggle="list" [href]="'#list-' + getCharacterId(character.name || character.title || character.firstName).toLowerCase().split(' ').join('-')" role="tab"
+                [attr.aria-controls]="'list-' + getCharacterId(character.name || character.title || character.firstName).toLowerCase().split(' ').join('-')">
+                {{ character.name || character.title || character.firstName }}</a>
         </div>
     </div>
     <div class="col-sm-6 col-md-8">
         <mat-card class="card-content">
             <div class="tab-content" id="nav-tabContent">
                 <div *ngFor="let character of results; let i = index" class="tab-pane fade show"
-                    [class.active]="i === 0" [id]="'list-' + getCharacterId(character.name || character.title).toLowerCase().split(' ').join('-')"
+                    [class.active]="i === 0" [id]="'list-' + getCharacterId(character.name || character.title || character.firstName).toLowerCase().split(' ').join('-')"
                     role="tabpanel"
-                    [attr.aria-labelledby]="'list-' + getCharacterId(character.name || character.title).toLowerCase().split(' ').join('-') + '-list'">
+                    [attr.aria-labelledby]="'list-' + getCharacterId(character.name || character.title || character.firstName).toLowerCase().split(' ').join('-') + '-list'">
                     <p>{{ character.description || 'Nenhuma descrição disponível' }}</p>
                 </div>
             </div>
