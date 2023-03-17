@@ -16,12 +16,9 @@ module.exports = async function processData(data) {
         // remove #N/A da descrição
         result.description = result.description.replace(/#N\/A/g, '');
 
-        console.log('Original description:', result.description);
 
         // traduz a descrição para o português usando a API do Google Translate
         result.description = await translate(result.description);
-
-        console.log('Translated description:', result.description);
       }
     }
   }
@@ -40,7 +37,6 @@ function translate(text) {
       }
 
       try {
-        console.log(body);
         const data = JSON.parse(body);
 
         let translatedText = '';
