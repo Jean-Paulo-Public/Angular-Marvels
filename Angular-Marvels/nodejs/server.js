@@ -6,7 +6,10 @@ const { MD5 } = require('crypto-js');
 const fs = require('fs');
 const app = express();
 
-app.get('/marvel', (req, res) => {
+// importa a função "processData" do módulo "dataProcessor"
+const processData = require('./dataProcessor');
+
+app.get('/marvel', async (req, res) => {
   const secrets = JSON.parse(fs.readFileSync('./secret.json', 'utf-8'));
   const timestamp = Date.now();
   const privateKey = secrets.privateKey;
@@ -28,7 +31,24 @@ app.get('/marvel', (req, res) => {
   // usa o valor do parâmetro "type" para construir a URL da API da Marvel
   const url = `https://gateway.marvel.com/v1/public/${type}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
 
-  request(url).pipe(res);
+  request(url, async (error, response, body) => {
+    if (error) {
+      res.status(500).json({ error: error.message });
+      return;
+    }
+
+    try {
+      // converte a resposta em JSON
+      let data = JSON.parse(body);
+
+      // trata os dados usando a função "processData"
+      data = await processData(data);
+
+      res.json(data);
+    } catch (e) {
+      res.status(500).json({ error: e.message });
+    }
+  });
 });
 
 app.listen(3000, () => {
