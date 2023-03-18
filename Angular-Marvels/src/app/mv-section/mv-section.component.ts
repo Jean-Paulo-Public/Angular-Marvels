@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class MvSectionComponent {
   @Input() isDarkTheme = false;
   @Input() selectedType: string = 'favorites';
-  selectedOption: number = 5;
+  resultsPerPage: number = 5;
 }

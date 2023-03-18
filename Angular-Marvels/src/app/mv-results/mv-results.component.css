@@ -27,3 +27,7 @@
     border-color: #222;
     background-color: #555;
 }
+
+mat-paginator{
+    padding: var(--my-app-mv-padding);
+}

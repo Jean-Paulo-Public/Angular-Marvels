@@ -2,9 +2,9 @@
 
 <div class="row">
     <div class="col-sm-12 col-md-3 d-flex justify-content-center">
-        <app-mv-options [isDarkTheme]="isDarkTheme" (optionSelected)="selectedOption = $event"></app-mv-options>
+        <app-mv-options [isDarkTheme]="isDarkTheme" (optionSelected)="resultsPerPage = $event"></app-mv-options>
     </div>
     <div class="col-sm-12 col-md-9">
-        <app-mv-results [isDarkTheme]="isDarkTheme" [selectedType]="selectedType" [selectedOption]="selectedOption"></app-mv-results>
+        <app-mv-results [isDarkTheme]="isDarkTheme" [selectedType]="selectedType" [resultsPerPage]="resultsPerPage"></app-mv-results>
     </div>
 </div>

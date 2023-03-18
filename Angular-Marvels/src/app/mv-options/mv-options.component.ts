@@ -14,10 +14,10 @@ export class MvOptionsComponent {
 
   options = [5, 10, 20, 50, 100];
   
-  selectedOption: number = this.options[0];
+  resultsPerPage: number = this.options[0];
 
   toggleOption() {
-    this.optionSelected.emit(this.selectedOption);
-    console.log(this.selectedOption)
+    this.optionSelected.emit(this.resultsPerPage);
+    console.log(this.resultsPerPage)
   }
 }

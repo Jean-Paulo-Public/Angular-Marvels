@@ -7,7 +7,7 @@
         <h5 class="card-title text-center">Quantidade de resultados por página</h5>
         <div class="input-group mb-3">
             <label class="input-group-text" [ngClass]="{'dark-mode': isDarkTheme}" for="inputGroupSelect01">Selecione</label>
-            <select class="form-select" [ngClass]="{'dark-mode': isDarkTheme}" id="inputGroupSelect01" [(ngModel)]="selectedOption" (change)="toggleOption()">
+            <select class="form-select" [ngClass]="{'dark-mode': isDarkTheme}" id="inputGroupSelect01" [(ngModel)]="resultsPerPage" (change)="toggleOption()">
                 <option *ngFor="let option of options" [value]="option">{{ option }}</option>
             </select>
         </div>

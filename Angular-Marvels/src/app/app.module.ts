@@ -27,6 +27,8 @@ import { MvResultsComponent } from './mv-results/mv-results.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonToggleModule,
     HttpClientModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

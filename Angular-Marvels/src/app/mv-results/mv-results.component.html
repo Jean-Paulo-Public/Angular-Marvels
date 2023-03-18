@@ -9,6 +9,11 @@
                 [attr.aria-controls]="'list-' + getCharacterId(character.name || character.title || character.firstName).toLowerCase().split(' ').join('-')">
                 {{ character.name || character.title || character.firstName }}</a>
         </div>
+        <!-- Adicione o componente mat-paginator aqui -->
+        <mat-paginator [length]="totalResults"
+                       [pageSize]="resultsPerPage"
+                       (page)="onPageChange($event)">
+        </mat-paginator>
     </div>
     <div class="col-sm-6 col-md-8">
         <mat-card class="card-content">
