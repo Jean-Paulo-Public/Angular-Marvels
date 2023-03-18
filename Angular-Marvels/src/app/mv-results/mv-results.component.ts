@@ -10,7 +10,10 @@ import { MarvelService } from '../services/marvel.service';
 })
 export class MvResultsComponent implements OnInit {
     @Input() isDarkTheme = false;
+    
     @Input() selectedType: string = 'characters';
+    
+    @Input() selectedOption: number = 5;
 
     results: any[] = [];
 
@@ -31,7 +34,7 @@ export class MvResultsComponent implements OnInit {
     // adiciona um método para atualizar os resultados
     updateResults() {
         if (this.selectedType) {
-            this.marvelService.getResults(this.selectedType).subscribe(results => {
+            this.marvelService.getResults(this.selectedType, this.selectedOption).subscribe(results => {
                 this.results = results;
             });
         }

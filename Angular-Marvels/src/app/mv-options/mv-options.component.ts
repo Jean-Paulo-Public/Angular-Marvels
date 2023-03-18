@@ -1,6 +1,6 @@
 /* mv-options.component.ts  */
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-mv-options',
@@ -10,5 +10,14 @@ import { Component, Input } from '@angular/core';
 export class MvOptionsComponent {
   @Input() isDarkTheme = false;
   
+  @Output() optionSelected = new EventEmitter<number>();
+
   options = [5, 10, 20, 50, 100];
+  
+  selectedOption: number = this.options[0];
+
+  toggleOption() {
+    this.optionSelected.emit(this.selectedOption);
+    console.log(this.selectedOption)
+  }
 }

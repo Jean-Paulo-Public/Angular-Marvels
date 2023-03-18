@@ -15,7 +15,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { MvButtonToggleGroupComponent } from './mv-button-toggle-group/mv-button-toggle-group.component';
 
-/*import { FormsModule } from '@angular/forms';*/
+import { FormsModule } from '@angular/forms';
 
 /*import { JoinPipe } from './join.pipe';*/
 
@@ -45,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatButtonToggleModule,
     HttpClientModule,
-    /*FormsModule,*/
+    FormsModule,
     MatCardModule
   ],
   providers: [],

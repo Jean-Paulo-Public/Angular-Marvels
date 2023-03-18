@@ -28,8 +28,11 @@ app.get('/marvel', async (req, res) => {
     return;
   }
 
-  // usa o valor do parâmetro "type" para construir a URL da API da Marvel
-  const url = `https://gateway.marvel.com/v1/public/${type}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+  // lê o parâmetro "limit" da requisição e define um valor padrão de 5 caso não seja informado
+  const limit = req.query.limit || 5;
+
+  // usa os valores dos parâmetros "type" e "limit" para construir a URL da API da Marvel
+  const url = `https://gateway.marvel.com/v1/public/${type}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}&limit=${limit}`;
 
   request(url, async (error, response, body) => {
     if (error) {
