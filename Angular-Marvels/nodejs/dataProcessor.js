@@ -1,8 +1,10 @@
-// dataProcessor.js
+/* dataProcessor.js */
 const redis = require('redis');
-const { promisify } = require('util');
-
 const client = redis.createClient('redis://localhost:6389');
+
+client.connect();
+
+const { promisify } = require('util');
 
 const request = require('request');
 
@@ -23,9 +25,6 @@ module.exports = async function processData(data) {
         // cria uma chave única para armazenar a tradução em cache
         const cacheKey = `translation:${result.description}`;
 
-        if (!client.connect){
-          client.connect();
-        }
         // verifica se a tradução já existe em cache
         const cachedTranslation = await client.get(cacheKey);
 
