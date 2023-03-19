@@ -61,20 +61,17 @@ app.listen(3000, () => {
 });
 
 /* Descrição feita via chat gpt !!! Verifique se está atualizado !!! 
-Esse código é um exemplo de um servidor backend usando o framework Express.js para servir uma API que se comunica com a 
-API pública da Marvel. A API pública da Marvel é usada para buscar informações sobre personagens, quadrinhos, eventos, etc. 
-O código também faz uso da biblioteca request para fazer requisições HTTP para a API da Marvel e da biblioteca crypto-js 
-para gerar um hash MD5.
-
-A API tem um endpoint "/marvel" que aceita parâmetros de consulta opcionais, incluindo "type", "limit" e "offset". 
-O parâmetro "type" é usado para especificar o tipo de recurso que será recuperado da API da Marvel, como personagens, 
-quadrinhos, eventos, etc. O parâmetro "limit" é usado para limitar o número de resultados retornados e o parâmetro "offset" 
-é usado para especificar a posição inicial dos resultados retornados.
-
-O código lê um arquivo chamado "secret.json" para obter as chaves pública e privada necessárias para acessar a API pública 
-da Marvel. Ele também usa a função "processData" de um módulo "dataProcessor" para processar os dados retornados pela API 
-da Marvel antes de retornar a resposta para o cliente.
-
-Se o valor do parâmetro "type" for igual a "favorites", o servidor retornará uma resposta vazia em JSON. [*** por enquanto]
-Se ocorrer um erro ao fazer a requisição para a API da Marvel, o servidor retornará um objeto JSON com uma mensagem de erro. 
-O servidor está configurado para ouvir na porta 3000. */
+📝 O arquivo "server.js" contém o código de um servidor Express que acessa a API da Marvel.
+📝 O servidor é um API RESTful que utiliza as chaves pública e privada da API da Marvel para autenticação.
+🔒 As chaves são lidas de um arquivo secreto JSON e usadas para gerar um hash MD5 que é enviado junto com a requisição.
+📝 A API da Marvel oferece vários tipos de dados, como personagens, quadrinhos, eventos, histórias, criadores, favoritos e curtidos.
+📝 O endpoint "/marvel" implementa uma rota para acessar a API da Marvel.
+📝 Se o parâmetro "type" não for especificado, o valor padrão é "favorites", caso contrário é possível acessar todos os tipos disponíveis.
+📝 O servidor utiliza os parâmetros "type", "limit" e "offset" para construir a URL da API da Marvel.
+📝 Se o valor do parâmetro "type" for "favorites", o servidor retorna uma resposta vazia.
+📝 O servidor usa a biblioteca "request" para fazer a requisição para a API da Marvel e trata a resposta usando a função "processData".
+📝 Se houver algum erro durante a requisição ou o processamento dos dados, o servidor retorna um erro com status 500.
+📝 Os dados retornados pela API podem ser limitados e filtrados com o parâmetro "limit" e "offset".
+🔍 A função "processData" é usada para tratar os dados antes de retorná-los.
+🚀 O servidor é iniciado na porta 3000 e uma mensagem é impressa no console informando que está ouvindo nessa porta.
+*/
