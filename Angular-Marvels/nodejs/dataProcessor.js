@@ -3,7 +3,6 @@ const redis = require('redis');
 const { promisify } = require('util');
 
 const client = redis.createClient('redis://localhost:6389');
-client.connect();
 
 const request = require('request');
 
@@ -24,6 +23,9 @@ module.exports = async function processData(data) {
         // cria uma chave única para armazenar a tradução em cache
         const cacheKey = `translation:${result.description}`;
 
+        if (!client.connect){
+          client.connect();
+        }
         // verifica se a tradução já existe em cache
         const cachedTranslation = await client.get(cacheKey);
 
@@ -76,3 +78,21 @@ function translate(text) {
     });
   });
 }
+
+/* Descrição feita via chat gpt !!! Verifique se está atualizado !!! 
+Esse é um módulo chamado "dataProcessor" que exporta uma função assíncrona chamada "processData".
+A função recebe um objeto de dados como parâmetro e retorna uma versão modificada dos dados.
+A função faz várias verificações e modificações no objeto de dados. 
+Primeiro, ela verifica se a propriedade "data" existe no objeto de dados e percorre todos os resultados nessa propriedade. 
+Em cada resultado, a função verifica se a propriedade "description" existe e remove as tags HTML <br> e a string "#N/A" 
+da descrição.
+Em seguida, a função verifica se há uma tradução armazenada em cache para a descrição em questão. 
+Se houver, a função usa a tradução em cache para a descrição e se não houver, ela faz uma solicitação para a 
+API do Google Translate para traduzir a descrição de inglês para português. 
+A tradução resultante é armazenada em cache e usada no resultado atual.
+A função de tradução é definida internamente e usa o pacote "request" para fazer uma solicitação à API do Google Translate.
+O resultado é tratado em JSON e a tradução é extraída e retornada em uma Promise resolvida.
+O módulo "dataProcessor" também usa o pacote "redis" para armazenar as traduções em cache. 
+A conexão com o servidor Redis é estabelecida ao iniciar o módulo e a biblioteca "promisify" é usada para transformar as 
+funções assíncronas do pacote "redis" em funções que retornam Promises.
+*/
