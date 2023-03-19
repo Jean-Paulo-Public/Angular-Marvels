@@ -49,7 +49,6 @@ app.get('/marvel', async (req, res) => {
 
       // trata os dados usando a função "processData"
       data = await processData(data);
-
       res.json(data);
     } catch (e) {
       res.status(500).json({ error: e.message });

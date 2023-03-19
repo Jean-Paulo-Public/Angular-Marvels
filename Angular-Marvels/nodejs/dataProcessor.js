@@ -1,4 +1,9 @@
 // dataProcessor.js
+const redis = require('redis');
+const { promisify } = require('util');
+
+const client = redis.createClient('redis://localhost:6389');
+client.connect();
 
 const request = require('request');
 
@@ -16,9 +21,24 @@ module.exports = async function processData(data) {
         // remove #N/A da descrição
         result.description = result.description.replace(/#N\/A/g, '');
 
+        // cria uma chave única para armazenar a tradução em cache
+        const cacheKey = `translation:${result.description}`;
 
-        // traduz a descrição para o português usando a API do Google Translate
-        result.description = await translate(result.description);
+        // verifica se a tradução já existe em cache
+        const cachedTranslation = await client.get(cacheKey);
+
+        if (cachedTranslation) {
+          // usa a tradução em cache
+          result.description = cachedTranslation;
+        } else {
+          // busca a tradução na API do Google Translate
+          const translatedText = await translate(result.description);
+
+          // armazena a tradução em cache para uso futuro
+          client.set(cacheKey, translatedText);
+
+          result.description = translatedText;
+        }
       }
     }
   }
