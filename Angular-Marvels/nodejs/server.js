@@ -9,6 +9,13 @@ const app = express();
 // importa a função "processData" do módulo "dataProcessor"
 const processData = require('./dataProcessor');
 
+const redis = require('redis');
+const client = redis.createClient();
+client.connect();
+
+// define um tempo de expiração de um dia (em segundos)
+const DATA_EXPIRE_CACHE = 60 * 60 *24;
+
 app.get('/marvel', async (req, res) => {
   const secrets = JSON.parse(fs.readFileSync('./secret.json', 'utf-8'));
   const timestamp = Date.now();
@@ -34,6 +41,18 @@ app.get('/marvel', async (req, res) => {
   // lê parametro "offset" da requisição
   const offset = req.query.offset || 0;
 
+  // cria uma chave única para armazenar os dados em cache
+  const cacheKey = `marvel:${type}:${limit}:${offset}`;
+
+  // verifica se os dados já estão armazenados em cache
+  const cachedData = await client.get(cacheKey);
+
+  if (cachedData) {
+    // retorna os dados armazenados em cache
+    res.json(JSON.parse(cachedData));
+    return;
+  }
+
   // usa os valores dos parâmetros "type" e "limit" para construir a URL da API da Marvel
   const url = `https://gateway.marvel.com/v1/public/${type}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}`;
 
@@ -49,6 +68,10 @@ app.get('/marvel', async (req, res) => {
 
       // trata os dados usando a função "processData"
       data = await processData(data);
+      
+      // Coloquei data de expiração de um dia, por que diferentemente de tradução que nunca muda, isso pode mudar uma coisa ou outra, e um dia tá dentro do limite de renovação de consumo da API da marvel.
+      client.setEx(cacheKey, DATA_EXPIRE_CACHE, JSON.stringify(data));
+
       res.json(data);
     } catch (e) {
       res.status(500).json({ error: e.message });

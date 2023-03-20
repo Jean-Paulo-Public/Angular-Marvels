@@ -4,8 +4,6 @@ const client = redis.createClient('redis://localhost:6389');
 
 client.connect();
 
-const { promisify } = require('util');
-
 const request = require('request');
 
 // exporta uma função que recebe os dados e retorna os dados tratados
