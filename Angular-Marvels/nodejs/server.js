@@ -84,17 +84,12 @@ app.listen(3000, () => {
 });
 
 /* Descrição feita via chat gpt !!! Verifique se está atualizado !!! 
-📝 O arquivo "server.js" contém o código de um servidor Express que acessa a API da Marvel.
-📝 O servidor é um API RESTful que utiliza as chaves pública e privada da API da Marvel para autenticação.
-🔒 As chaves são lidas de um arquivo secreto JSON e usadas para gerar um hash MD5 que é enviado junto com a requisição.
-📝 A API da Marvel oferece vários tipos de dados, como personagens, quadrinhos, eventos, histórias, criadores, favoritos e curtidos.
-📝 O endpoint "/marvel" implementa uma rota para acessar a API da Marvel.
-📝 Se o parâmetro "type" não for especificado, o valor padrão é "favorites", caso contrário é possível acessar todos os tipos disponíveis.
-📝 O servidor utiliza os parâmetros "type", "limit" e "offset" para construir a URL da API da Marvel.
-📝 Se o valor do parâmetro "type" for "favorites", o servidor retorna uma resposta vazia.
-📝 O servidor usa a biblioteca "request" para fazer a requisição para a API da Marvel e trata a resposta usando a função "processData".
-📝 Se houver algum erro durante a requisição ou o processamento dos dados, o servidor retorna um erro com status 500.
-📝 Os dados retornados pela API podem ser limitados e filtrados com o parâmetro "limit" e "offset".
-🔍 A função "processData" é usada para tratar os dados antes de retorná-los.
-🚀 O servidor é iniciado na porta 3000 e uma mensagem é impressa no console informando que está ouvindo nessa porta.
+👨‍💻📡🦸‍♂️ O arquivo "server.js" é um servidor Express que acessa a API da Marvel com autenticação de chaves pública e privada.
+🔑 As chaves são lidas de um arquivo secreto JSON e usadas para gerar um hash MD5.
+📊 O servidor oferece vários tipos de dados da API da Marvel, incluindo personagens, quadrinhos, eventos, histórias, criadores, favoritos e curtidos.
+🚀 O endpoint "/marvel" é a rota principal e pode ser filtrado por tipo, limite e offset.
+💾 Os dados são armazenados em cache com um tempo de expiração de um dia para evitar requisições excessivas à API.
+👨‍💼 A função "processData" é usada para tratar os dados antes de retorná-los.
+❌ O servidor retorna um erro com status 500 se ocorrer um problema durante a requisição ou o processamento dos dados.
+🚪 O servidor é iniciado na porta 3000 e uma mensagem é impressa no console para indicar que está ouvindo nessa porta.
 */

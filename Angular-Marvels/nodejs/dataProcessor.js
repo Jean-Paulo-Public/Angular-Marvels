@@ -77,13 +77,10 @@ function translate(text) {
 }
 
 /* Descrição feita via chat gpt !!! Verifique se está atualizado !!! 
-📝 O arquivo "dataProcessor.js" contém uma função que recebe dados e os trata antes de retorná-los.
-📝 Essa função utiliza a biblioteca Redis para armazenar em cache as traduções de descrições de resultados da API.
-🔗 Para isso, a função verifica se a tradução já existe em cache e, caso não exista, realiza uma requisição à API 
-   do Google Translate.
-📝 A função também remove as tags <br> e #N/A das descrições antes de traduzi-las, se necessário.
-🔗 A função "translate" é usada para realizar a requisição à API do Google Translate, utilizando a biblioteca "request".
-🔢 A requisição à API do Google Translate é feita de forma assíncrona, utilizando a função "Promise" para aguardar a resposta.
-🔍 A função utiliza expressões regulares para remover as tags <br> e #N/A das descrições.
-🚀 O arquivo "dataProcessor.js" é importado em outros arquivos do projeto para processar os dados retornados pela API.
+📝 "dataProcessor.js" contém uma função que trata dados antes de retorná-los, usando Redis para armazenar traduções 
+    de descrições dos resultados da API.
+🔗 A função verifica se a tradução já está em cache e, caso contrário, usa a API do Google Translate para obter a tradução.
+📝 A função remove as tags <br> e #N/A das descrições antes da tradução, se necessário, usando expressões regulares.
+🔢 A requisição à API do Google Translate é feita de forma assíncrona com a função "Promise".
+🚀 "dataProcessor.js" é usado em outros arquivos do projeto para processar dados retornados pela API.
 */
