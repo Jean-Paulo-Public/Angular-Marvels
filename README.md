@@ -23,4 +23,9 @@ Para iniciar o servidor que irá otimizar a performance e adicionar funcionalida
             src/redis-server redis.conf
             ```
 
-    - Consultas (provavelmente mongodb ou mysql)
+    - Consultas:
+        - (Instalado localmente no Pop.OS [Ubuntu])
+        ```
+        sudo systemctl start mongod
+        sudo systemctl status mongod
+        ```

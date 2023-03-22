@@ -9,12 +9,15 @@ const app = express();
 // importa a função "processData" do módulo "dataProcessor"
 const processData = require('./dataProcessor');
 
+// importa a função "saveDescriptions" do módulo "saveDescriptions"
+const saveDescriptions = require('./saveDescriptions');
+
 const redis = require('redis');
 const client = redis.createClient();
 client.connect();
 
 // define um tempo de expiração de um dia (em segundos)
-const DATA_EXPIRE_CACHE = 60 * 60 *24;
+const DATA_EXPIRE_CACHE = 60 * 60 * 24;
 
 app.get('/marvel', async (req, res) => {
   const secrets = JSON.parse(fs.readFileSync('./secret.json', 'utf-8'));
@@ -68,7 +71,10 @@ app.get('/marvel', async (req, res) => {
 
       // trata os dados usando a função "processData"
       data = await processData(data);
-      
+
+      // salva as descrições no MongoDB
+      saveDescriptions(type, data);
+
       // Coloquei data de expiração de um dia, por que diferentemente de tradução que nunca muda, isso pode mudar uma coisa ou outra, e um dia tá dentro do limite de renovação de consumo da API da marvel.
       client.setEx(cacheKey, DATA_EXPIRE_CACHE, JSON.stringify(data));
 
@@ -84,12 +90,16 @@ app.listen(3000, () => {
 });
 
 /* Descrição feita via chat gpt !!! Verifique se está atualizado !!! 
-👨‍💻📡🦸‍♂️ O arquivo "server.js" é um servidor Express que acessa a API da Marvel com autenticação de chaves pública e privada.
-🔑 As chaves são lidas de um arquivo secreto JSON e usadas para gerar um hash MD5.
-📊 O servidor oferece vários tipos de dados da API da Marvel, incluindo personagens, quadrinhos, eventos, histórias, criadores, favoritos e curtidos.
-🚀 O endpoint "/marvel" é a rota principal e pode ser filtrado por tipo, limite e offset.
-💾 Os dados são armazenados em cache com um tempo de expiração de um dia para evitar requisições excessivas à API.
-👨‍💼 A função "processData" é usada para tratar os dados antes de retorná-los.
-❌ O servidor retorna um erro com status 500 se ocorrer um problema durante a requisição ou o processamento dos dados.
-🚪 O servidor é iniciado na porta 3000 e uma mensagem é impressa no console para indicar que está ouvindo nessa porta.
+👨‍💻 - O arquivo "server.js" é um servidor Express que acessa a API da Marvel com autenticação de chaves pública e privada.
+🔑 - As chaves são lidas de um arquivo secreto JSON e usadas para gerar um hash MD5.
+📊 - O servidor oferece vários tipos de dados da API da Marvel, incluindo personagens, quadrinhos, eventos, histórias, criadores, favoritos e curtidos.
+🚀 - O endpoint "/marvel" é a rota principal e pode ser filtrado por tipo, limite e offset.
+💾 - Os dados são armazenados em cache com um tempo de expiração de um dia para evitar requisições excessivas à API.
+👨‍💼 - A função "processData" é usada para tratar os dados antes de retorná-los.
+📥 - A função "saveDescriptions" é usada para salvar as descrições no MongoDB.
+📄 - A função recebe como entrada as descrições processadas pela função "processData" e as salva no banco de dados MongoDB.
+🔒 - Além disso, é possível adicionar camadas extras de segurança, como autenticação e criptografia, para garantir que as 
+     informações salvas sejam protegidas adequadamente, abri um ticket de estudo, mas foge do escopo dessa aplicação (sem necessidade). 
+❌ - O servidor retorna um erro com status 500 se ocorrer um problema durante a requisição ou o processamento dos dados.
+🚪 - O servidor é iniciado na porta 3000 e uma mensagem é impressa no console para indicar que está ouvindo nessa porta.
 */
