@@ -8,7 +8,6 @@ import { map } from 'rxjs/operators';
 import { ResultComics } from '../models/marvel-comics';
 import { ResultEvents } from '../models/marvel-events';
 import { ResultSeries } from '../models/marvel-series';
-import { ResultStories } from '../models/marvel-stories';
 import { ResultCreators } from '../models/marvel-creators';
 
 @Injectable({
@@ -27,7 +26,6 @@ export class MarvelService {
       | ResultComics[]
       | ResultEvents[]
       | ResultSeries[]
-      | ResultStories[]
       | ResultCreators[];
     totalResults: number;
   }> {
@@ -41,7 +39,6 @@ export class MarvelService {
         | ResultComics[]
         | ResultEvents[]
         | ResultSeries[]
-        | ResultStories[]
         | ResultCreators[];
       totalResults: number;
     }> = of({ results: [], totalResults: limit });
@@ -78,15 +75,6 @@ export class MarvelService {
        break;
      case 'series':
        resultObservable = this.getMarvelData<ResultSeries>(
-         '/marvel?type='+type+'&limit='+limit+'&offset='+offset).pipe(
-           map(response=>({
-             results:response.results,
-             totalResults:response.totalResults
-           }))
-         );
-       break;
-     case 'stories':
-       resultObservable = this.getMarvelData<ResultStories>(
          '/marvel?type='+type+'&limit='+limit+'&offset='+offset).pipe(
            map(response=>({
              results:response.results,
