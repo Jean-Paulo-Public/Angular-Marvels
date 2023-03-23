@@ -1,6 +1,6 @@
 /* dataProcessor.js */
 const redis = require('redis');
-const client = redis.createClient('redis://localhost:6389');
+const client = redis.createClient({ socket: { port: 6389 } });
 
 client.connect();
 

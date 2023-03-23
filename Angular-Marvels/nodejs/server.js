@@ -13,7 +13,7 @@ const processData = require('./dataProcessor');
 const saveDescriptions = require('./saveDescriptions');
 
 const redis = require('redis');
-const client = redis.createClient();
+const client = redis.createClient({ socket: { port: 6389 } });
 client.connect();
 
 // define um tempo de expiração de um dia (em segundos)
