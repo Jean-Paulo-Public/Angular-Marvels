@@ -12,6 +12,9 @@ const processData = require('./dataProcessor');
 // importa a função "saveDescriptions" do módulo "saveDescriptions"
 const saveDescriptions = require('./saveDescriptions');
 
+// importa a função "search" do módulo "dataSearch"
+const search = require('./dataSearch');
+
 const redis = require('redis');
 const client = redis.createClient({ socket: { port: 6389 } });
 client.connect();
@@ -35,6 +38,16 @@ app.get('/marvel', async (req, res) => {
   if (type === 'favorites') {
     // retorna uma resposta vazia
     res.json([]);
+    return;
+  }
+
+  // lê o parâmetro "title" da requisição
+  const title = req.query.title;
+
+  if (title) {
+    // chama a função "search" passando o valor do parâmetro "title"
+    searchData = await search(type, title);
+    res.json(searchData);
     return;
   }
 

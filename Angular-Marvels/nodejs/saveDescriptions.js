@@ -1,3 +1,5 @@
+/* saveDescriptions.js  */
+
 const { MongoClient } = require('mongodb');
 const logger = require('./logger');
 
@@ -24,7 +26,8 @@ async function saveDescriptions(type, data) {
         filter: { id: result.id },
         // Atualização a ser feita
         update: { $set: { description: result.description,
-                          title: result.title || result.name || result.firstName } },
+                          title: result.title || result.name || result.firstName,
+                          type: type } },
         // Dá insert caso registro não exista
         upsert: true,
       },
