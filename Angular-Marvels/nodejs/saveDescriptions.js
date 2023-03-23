@@ -15,7 +15,7 @@ async function saveDescriptions(type, data) {
 
     const operations = data.data.results
     // Somente os que tem descrição ou título
-    .filter(result => result.description || result.name)
+    .filter(result => result.description || result.title || result.name || result.firstName)
     // Para cada registro em result
     .map(result => ({
       // Modifique(atualiza/insere) um documento [analogo a um registro]
@@ -24,7 +24,7 @@ async function saveDescriptions(type, data) {
         filter: { id: result.id },
         // Atualização a ser feita
         update: { $set: { description: result.description,
-                          title: result.name } },
+                          title: result.title || result.name || result.firstName } },
         // Dá insert caso registro não exista
         upsert: true,
       },
