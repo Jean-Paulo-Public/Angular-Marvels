@@ -3,7 +3,7 @@
 <div [ngClass]="{'dark-theme': isDarkTheme, 'light-theme': !isDarkTheme}">
   <!-- conteúdo da página -->
   <header>
-    <app-mv-toolbar [isDarkTheme]="isDarkTheme" [pageTitle]="pageTitle" (themeChanged)="onThemeChanged($event)">
+    <app-mv-toolbar [isDarkTheme]="isDarkTheme" [pageTitle]="pageTitle" (searchTextChanged)="onSearchTextChange($event)" (themeChanged)="onThemeChanged($event)">
     </app-mv-toolbar>
   </header>
   <!--
@@ -12,9 +12,9 @@
     </nav>
   -->
   <main class="main-content">
-    <app-mv-button-toggle-group (selectionChange)="onSelectionChage($event)"></app-mv-button-toggle-group>     
+    <app-mv-button-toggle-group (selectionChange)="onSelectionChange($event)"></app-mv-button-toggle-group>     
     <section class="section-content">
-      <app-mv-section [isDarkTheme]="isDarkTheme" [selectedType]="selectedType"></app-mv-section>
+      <app-mv-section [isDarkTheme]="isDarkTheme" [selectedType]="selectedType" [searchText]="searchText"></app-mv-section>
     </section>
   </main>
   <footer class="fixed-bottom">

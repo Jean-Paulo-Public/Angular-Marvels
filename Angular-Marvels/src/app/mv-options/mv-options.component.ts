@@ -18,6 +18,5 @@ export class MvOptionsComponent {
 
   toggleOption() {
     this.optionSelected.emit(this.resultsPerPage);
-    console.log(this.resultsPerPage)
   }
 }

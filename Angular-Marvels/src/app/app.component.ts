@@ -10,6 +10,7 @@ export class AppComponent {
   isDarkTheme = false;
   pageTitle = 'Angular Marvels';
   selectedType = 'favorites';
+  searchText = '';
 
   constructor(private matPaginatorIntl: MatPaginatorIntl) {
     // define um valor personalizado para a propriedade itemsPerPageLabel
@@ -50,8 +51,12 @@ export class AppComponent {
     }
   }
 
-  onSelectionChage(selectedType: string) {
+  onSelectionChange(selectedType: string) {
     this.selectedType = selectedType
+  }
+
+  onSearchTextChange(searchText: string) {
+    this.searchText = searchText
   }
 
   onThemeChanged(theme: boolean) {

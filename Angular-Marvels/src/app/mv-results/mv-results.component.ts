@@ -2,56 +2,78 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { MarvelService } from '../services/marvel.service';
+import { MarvelSearchService } from '../../../nodejs/marvel-search.service';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
-    selector: 'app-mv-results',
-    templateUrl: './mv-results.component.html',
-    styleUrls: ['./mv-results.component.css']
+  selector: 'app-mv-results',
+  templateUrl: './mv-results.component.html',
+  styleUrls: ['./mv-results.component.css'],
 })
 export class MvResultsComponent implements OnInit {
-    @Input() isDarkTheme = false;
+  @Input() isDarkTheme = false;
 
-    @Input() selectedType: string = 'characters';
+  @Input() selectedType: string = 'characters';
 
-    @Input() resultsPerPage: number = 5;
+  @Input() resultsPerPage: number = 5;
 
-    totalResults: number = 0;
+  @Input() searchText: string = '';
 
-    results: any[] = [];
+  totalResults: number = 0;
 
-    getCharacterId(name: string): string {
-        return 'list-' + name.toLowerCase().split(' ').join('-').replace(/[^\w-]/g, '') + '-list';
-    }
+  results: any[] = [];
 
-    constructor(private marvelService: MarvelService) { }
+  getCharacterId(name: string): string {
+    return (
+      'list-' +
+      name
+        .toLowerCase()
+        .split(' ')
+        .join('-')
+        .replace(/[^\w-]/g, '') +
+      '-list'
+    );
+  }
 
-    ngOnInit() {
-        this.updateResults();
-    }
+  constructor(
+    private marvelService: MarvelService,
+    private marvelSearchService: MarvelSearchService
+  ) {}
 
-    ngOnChanges() {
-        this.updateResults();
-    }
+  ngOnInit() {
+    this.updateResults();
+  }
 
-    // adiciona um parâmetro adicional ao método updateResults()
-    updateResults(pageIndex?: number) {
+  ngOnChanges() {
+    this.updateResults();
+  }
+
+   updateResults(pageIndex?: number) {
         if (!pageIndex){
             pageIndex = 0;
         }
 
         if (this.selectedType) {
-            this.marvelService.getResults(this.selectedType, this.resultsPerPage, pageIndex).subscribe( ({results, totalResults}) => {
-                this.results = results;
-                // atualiza o valor da propriedade total results com base no valor retornado pelo serviço
-                this.totalResults = totalResults;
-            });
+          if (this.searchText) {
+              this.marvelSearchService.search(this.selectedType,this.searchText, this.resultsPerPage , pageIndex).subscribe( ({results,totalResults}) => {
+                  this.results = results;
+                  // atualiza o valor da propriedade total results com base no valor retornado pelo serviço
+                  this.totalResults = totalResults;
+              });
+          } else {
+                this.marvelService.getResults(this.selectedType,this.resultsPerPage , pageIndex).subscribe( ({results,totalResults}) => {
+                    this.results = results;
+                    // atualiza o valor da propriedade total results com base no valor retornado pelo serviço
+                    this.totalResults = totalResults;
+                });
+            }
         }
     }
-    // adiciona um método para lidar com mudanças de página
-    onPageChange(event: PageEvent) {
-        const pageIndex = event.pageIndex;
-        // atualiza os resultados com base na página selecionada
-        this.updateResults(pageIndex);
-    }
+
+   // adiciona um método para lidar com mudanças de página
+   onPageChange(event: PageEvent) {
+     const pageIndex = event.pageIndex;
+     // atualiza os resultados com base na página selecionada
+     this.updateResults(pageIndex);
+   }
 }

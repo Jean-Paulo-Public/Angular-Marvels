@@ -44,18 +44,18 @@ app.get('/marvel', async (req, res) => {
   // lê o parâmetro "title" da requisição
   const title = req.query.title;
 
-  if (title) {
-    // chama a função "search" passando o valor do parâmetro "title"
-    searchData = await search(type, title);
-    res.json(searchData);
-    return;
-  }
-
   // lê o parâmetro "limit" da requisição e define um valor padrão de 5 caso não seja informado
   const limit = req.query.limit || 5;
 
   // lê parametro "offset" da requisição
   const offset = req.query.offset || 0;
+
+  if (title) {
+    // chama a função "search" passando o valor do parâmetro "title"
+    searchData = await search(type, title, limit, offset);
+    res.json(searchData);
+    return;
+  }
 
   // cria uma chave única para armazenar os dados em cache
   const cacheKey = `marvel:${type}:${limit}:${offset}`;
