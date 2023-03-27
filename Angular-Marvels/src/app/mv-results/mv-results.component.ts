@@ -2,7 +2,7 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { MarvelService } from '../services/marvel.service';
-import { MarvelSearchService } from '../../../nodejs/marvel-search.service';
+import { MarvelSearchService } from '../services/marvel-search.service';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
@@ -24,6 +24,7 @@ export class MvResultsComponent implements OnInit {
   results: any[] = [];
 
   getCharacterId(name: string): string {
+    // Alguns caracteres não são permitidos como identificador, decidi remove-los por aqui. 
     return (
       'list-' +
       name
@@ -55,13 +56,18 @@ export class MvResultsComponent implements OnInit {
 
         if (this.selectedType) {
           if (this.searchText) {
-              this.marvelSearchService.search(this.selectedType,this.searchText, this.resultsPerPage , pageIndex).subscribe( ({results,totalResults}) => {
+              this.marvelSearchService.search(this.selectedType,this.searchText, this.resultsPerPage , pageIndex)
+              // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
+              .subscribe( 
+                ({results,totalResults}) => {
                   this.results = results;
                   // atualiza o valor da propriedade total results com base no valor retornado pelo serviço
                   this.totalResults = totalResults;
               });
           } else {
-                this.marvelService.getResults(this.selectedType,this.resultsPerPage , pageIndex).subscribe( ({results,totalResults}) => {
+                this.marvelService.getResults(this.selectedType,this.resultsPerPage , pageIndex)
+                // Subscreve no observer para receber o resultado da função assíncrona quando ficar pronto
+                .subscribe( ({results,totalResults}) => {
                     this.results = results;
                     // atualiza o valor da propriedade total results com base no valor retornado pelo serviço
                     this.totalResults = totalResults;
