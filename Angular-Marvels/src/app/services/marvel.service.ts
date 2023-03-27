@@ -15,24 +15,15 @@ import { ResultCreators } from '../models/marvel-creators';
 })
 export class MarvelService {
   constructor(private http: HttpClient) {}
-
-  getResults(
-    type: string,
-    limit: number = 5,
-    pageIndex?: number
-  ): Observable<{
-    results:
-      | ResultCharacter[]
-      | ResultComics[]
-      | ResultEvents[]
-      | ResultSeries[]
-      | ResultCreators[];
-    totalResults: number;
-  }> {
+  getResults(type: string, limit: number = 5, pageIndex?: number): Observable<{ results: ResultCharacter[] | 
+                                                                                         ResultComics[] | 
+                                                                                         ResultEvents[] | 
+                                                                                         ResultSeries[] | 
+                                                                                         ResultCreators[]; 
+                                                                                totalResults: number;}> {
+    // Inicio dos comandos da função "getResults"
     pageIndex = pageIndex || 0;
-
     const offset = limit * pageIndex;
-
     let resultObservable: Observable<{
       results:
         | ResultCharacter[]
@@ -47,7 +38,8 @@ export class MarvelService {
       case 'characters':
         resultObservable = this.getMarvelData<ResultCharacter>(
           '/marvel?type=' + type + '&limit=' + limit + '&offset=' + offset
-        ).pipe(
+        ).pipe( // Função que canaliza dos dados
+          // Mapeia cada elemento
           map(response => ({
             results: response.results,
             totalResults: response.totalResults
@@ -57,7 +49,8 @@ export class MarvelService {
       case 'comics':
         resultObservable = this.getMarvelData<ResultComics>(
           '/marvel?type=' + type + '&limit=' + limit + '&offset=' + offset
-        ).pipe(
+        ).pipe( // Função que canaliza dos dados
+        // Mapeia cada elemento
           map(response => ({
             results: response.results,
             totalResults: response.totalResults
@@ -66,7 +59,9 @@ export class MarvelService {
         break;
       case 'events':
        resultObservable = this.getMarvelData<ResultEvents>(
-         '/marvel?type='+type+'&limit='+limit+'&offset='+offset).pipe(
+         '/marvel?type='+type+'&limit='+limit+'&offset='+offset
+         ).pipe( // Função que canaliza dos dados
+         // Mapeia cada elemento
            map(response=>({
              results:response.results,
              totalResults:response.totalResults
@@ -75,7 +70,9 @@ export class MarvelService {
        break;
      case 'series':
        resultObservable = this.getMarvelData<ResultSeries>(
-         '/marvel?type='+type+'&limit='+limit+'&offset='+offset).pipe(
+         '/marvel?type='+type+'&limit='+limit+'&offset='+offset)
+         .pipe( // Função que canaliza dos dados
+         // Mapeia cada elemento
            map(response=>({
              results:response.results,
              totalResults:response.totalResults
@@ -84,7 +81,9 @@ export class MarvelService {
        break;
      case 'creators':
        resultObservable = this.getMarvelData<ResultCreators>(
-         '/marvel?type='+type+'&limit='+limit+'&offset='+offset).pipe(
+         '/marvel?type='+type+'&limit='+limit+'&offset='+offset
+         ).pipe( // Função que canaliza dos dados
+         // Mapeia cada elemento
            map(response=>({
              results:response.results,
              totalResults:response.totalResults
@@ -96,6 +95,7 @@ export class MarvelService {
      return resultObservable;
    }
 
+   // Função genérica, para trazer os dados já no formato correto.
    private getMarvelData<T>(url:string):Observable<{results:T[],totalResults:number}>{
      return this.http.get<{ data:{results:T[],total:number}}>(url).pipe(
        map(response=>({results:response.data.results,totalResults:response.data.total}))
