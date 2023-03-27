@@ -38,56 +38,26 @@ export class MarvelService {
       case 'characters':
         resultObservable = this.getMarvelData<ResultCharacter>(
           '/marvel?type=' + type + '&limit=' + limit + '&offset=' + offset
-        ).pipe( // Função que canaliza dos dados
-          // Mapeia cada elemento
-          map(response => ({
-            results: response.results,
-            totalResults: response.totalResults
-          }))
         );
         break;
       case 'comics':
         resultObservable = this.getMarvelData<ResultComics>(
           '/marvel?type=' + type + '&limit=' + limit + '&offset=' + offset
-        ).pipe( // Função que canaliza dos dados
-        // Mapeia cada elemento
-          map(response => ({
-            results: response.results,
-            totalResults: response.totalResults
-          }))
         );
         break;
       case 'events':
        resultObservable = this.getMarvelData<ResultEvents>(
          '/marvel?type='+type+'&limit='+limit+'&offset='+offset
-         ).pipe( // Função que canaliza dos dados
-         // Mapeia cada elemento
-           map(response=>({
-             results:response.results,
-             totalResults:response.totalResults
-           }))
          );
        break;
      case 'series':
        resultObservable = this.getMarvelData<ResultSeries>(
          '/marvel?type='+type+'&limit='+limit+'&offset='+offset)
-         .pipe( // Função que canaliza dos dados
-         // Mapeia cada elemento
-           map(response=>({
-             results:response.results,
-             totalResults:response.totalResults
-           }))
-         );
+         ;
        break;
      case 'creators':
        resultObservable = this.getMarvelData<ResultCreators>(
          '/marvel?type='+type+'&limit='+limit+'&offset='+offset
-         ).pipe( // Função que canaliza dos dados
-         // Mapeia cada elemento
-           map(response=>({
-             results:response.results,
-             totalResults:response.totalResults
-           }))
          );
        break;
      }
@@ -97,8 +67,11 @@ export class MarvelService {
 
    // Função genérica, para trazer os dados já no formato correto.
    private getMarvelData<T>(url:string):Observable<{results:T[],totalResults:number}>{
-     return this.http.get<{ data:{results:T[],total:number}}>(url).pipe(
-       map(response=>({results:response.data.results,totalResults:response.data.total}))
-     );
+     return this.http.get<{ data:{results:T[],total:number}}>(url)
+      .pipe(// Função que canaliza dos dados
+        // Mapeia cada elemento
+        map(response=>({results:response.data.results,
+                        totalResults:response.data.total}))
+      );
    }
 }
