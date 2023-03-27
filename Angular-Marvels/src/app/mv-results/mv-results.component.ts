@@ -12,11 +12,8 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class MvResultsComponent implements OnInit {
   @Input() isDarkTheme = false;
-
   @Input() selectedType: string = 'characters';
-
   @Input() resultsPerPage: number = 5;
-
   @Input() searchText: string = '';
 
   totalResults: number = 0;
