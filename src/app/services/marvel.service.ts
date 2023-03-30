@@ -9,6 +9,7 @@ import { ResultComics } from '../models/marvel-comics';
 import { ResultEvents } from '../models/marvel-events';
 import { ResultSeries } from '../models/marvel-series';
 import { ResultCreators } from '../models/marvel-creators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -37,37 +38,37 @@ export class MarvelService {
     switch (type) {
       case 'characters':
         resultObservable = this.getMarvelData<ResultCharacter>(
-          '/marvel?type=' + type + '&limit=' + limit + '&offset=' + offset
+          `/characters?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
         );
         break;
       case 'comics':
         resultObservable = this.getMarvelData<ResultComics>(
-          '/marvel?type=' + type + '&limit=' + limit + '&offset=' + offset
+          `/comics?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
         );
         break;
       case 'events':
-       resultObservable = this.getMarvelData<ResultEvents>(
-         '/marvel?type='+type+'&limit='+limit+'&offset='+offset
-         );
-       break;
-     case 'series':
-       resultObservable = this.getMarvelData<ResultSeries>(
-         '/marvel?type='+type+'&limit='+limit+'&offset='+offset)
-         ;
-       break;
-     case 'creators':
-       resultObservable = this.getMarvelData<ResultCreators>(
-         '/marvel?type='+type+'&limit='+limit+'&offset='+offset
-         );
-       break;
-     }
+        resultObservable = this.getMarvelData<ResultEvents>(
+          `events?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
+        );
+        break;
+      case 'series':
+        resultObservable = this.getMarvelData<ResultSeries>(
+          `series?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
+        );
+        break;
+      case 'creators':
+        resultObservable = this.getMarvelData<ResultCreators>(
+          `creators?apikey=${environment.apiKey}&limit=${limit}&offset=${offset}&hash=${environment.apiHash}&ts=${environment.timestamp}`
+        );
+        break;
+    }
 
      return resultObservable;
    }
 
    // Função genérica, para trazer os dados já no formato correto.
-   private getMarvelData<T>(url:string):Observable<{results:T[],totalResults:number}>{
-     return this.http.get<{ data:{results:T[],total:number}}>(url)
+   private getMarvelData<T>(urlRoute:string):Observable<{results:T[],totalResults:number}>{
+     return this.http.get<{ data:{results:T[],total:number}}>(environment.apiUrl + urlRoute)
       .pipe(// Função que canaliza dos dados
         // Mapeia cada elemento
         map(response=>({results:response.data.results,
